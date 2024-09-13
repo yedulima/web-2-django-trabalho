@@ -13,7 +13,11 @@ class Temperature(forms.Form):
 
 class Length(forms.Form):
     CHOICES: list[tuple] = [
+        ('Quilometro', 'Quilômetro (km)'),
+        ('Hectometro', 'Hectômetro (hm)'),
+        ('Decametro', 'Decametro (dam)'),
         ('Metro', 'Metro (m)'),
+        ('Decimetro', 'Decímetro (dm)'),
         ('Centimetro', 'Centímetro (cm)'),
         ('Milimetro', 'Milímetro (mm)'),
     ]
@@ -24,8 +28,13 @@ class Length(forms.Form):
 
 class Weight(forms.Form):
     CHOICES: list[tuple] = [
-        ('Kilograma', 'Kilograma (kg)'),
+        ('Quilograma', 'Quilôgrama (kg)'),
+        ('Hectograma', 'Hectôgrama (hg)'),
+        ('Decagrama', 'Decagrama (dag)'),
         ('Grama', 'Grama (g)'),
+        ('Decigrama', 'Decagrama (dg)'),
+        ('Centigrama', 'Centígrama (cg)'),
+        ('Miligrama', 'Milígrama (mg)'),
     ]
 
     first_choice = forms.ChoiceField(label="De", choices=CHOICES, widget=forms.Select(attrs={'style': 'font-size: .9em; border-radius: 4px;'}))
