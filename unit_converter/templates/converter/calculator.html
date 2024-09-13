@@ -1,0 +1,28 @@
+{% extends 'converter/base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Conversor de {{ key_word }}</title>
+    <link rel="stylesheet" href="{% static 'converter/css/calculator.css' %}">
+{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Conversor de {{ key_word }}</h1>
+        </br>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Calcular" id="submit-button">
+        </form>
+        <div class="result">
+            {% if first_choice and second_choice %}
+                <p>A transformação de <b>{{ first_choice }}</b> para <b>{{ second_choice }}</b> será de <b>{{ actual_value }}</b>.</p>
+            {% endif %}
+        </div>
+        </br>
+        <div class="description">
+            <p>{{ description }}</p>
+        </div>
+    </main>
+{% endblock %}

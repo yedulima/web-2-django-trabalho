@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'converter/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'converter/images/logo.png' %}" type="image/x-icon">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="{% url 'converter:lenght' %}">Tamanho</a></li>
+            <li><a href="{% url 'converter:temperature' %}">Temperatura</a></li>
+            <li><a href="{% url 'converter:weight' %}">Peso</a></li>
+        </ul>
+    </nav>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
