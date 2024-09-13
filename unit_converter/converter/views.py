@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import Temperature, Length, Weight
+from .modules import converterUniversal
 
 description_texts: dict = {
     "Temperatura": "A temperatura é uma medida da energia térmica de um objeto ou substância. Ela pode ser expressa em diferentes escalas, sendo as mais comuns Celsius (°C), Fahrenheit (°F) e Kelvin (K). No sistema métrico, o Celsius é amplamente utilizado, enquanto o Kelvin é a unidade oficial no Sistema Internacional (SI), essencial na ciência por começar no zero absoluto, o ponto onde todas as partículas param de se mover. O Fahrenheit é mais comum em alguns países como os Estados Unidos. A conversão entre essas unidades é importante para garantir precisão em áreas como ciência, saúde e meteorologia.",
@@ -61,20 +62,7 @@ def lenght(req):
             second_choice: str = form.cleaned_data['second_choice']
             value: float = form.cleaned_data['value']
 
-            if first_choice == second_choice:
-                actual_lenght = value
-            elif first_choice == "Metro" and second_choice == "Centimetro":
-                actual_lenght = value * 100
-            elif first_choice == "Centimetro" and second_choice == "Metro":
-                actual_lenght = value / 100
-            elif first_choice == "Metro" and second_choice == "Milimetro":
-                actual_lenght = value * 1000
-            elif first_choice == "Centimetro" and second_choice == "Milimetro":
-                actual_lenght = value * 10
-            elif first_choice == "Milimetro" and second_choice == "Metro":
-                actual_lenght = value / 1000
-            elif first_choice == "Milimetro" and second_choice == "Centimetro":
-                actual_lenght = value / 10
+            actual_lenght = converterUniversal.comprimentos(value, first_choice, second_choice)
     
     else:
         actual_lenght: float = 0
@@ -102,12 +90,7 @@ def weight(req):
             second_choice: str = form.cleaned_data['second_choice']
             value: float = form.cleaned_data['value']
 
-            if first_choice == second_choice:
-                actual_weight = value
-            elif first_choice == "Kilograma" and second_choice == "Grama":
-                actual_weight = value * 1000
-            elif first_choice == "Grama" and second_choice == "Kilograma":
-                actual_weight = value / 1000
+            actual_weight = converterUniversal.pesos(value, first_choice, second_choice)
     
     else:
         actual_weight: float = 0
