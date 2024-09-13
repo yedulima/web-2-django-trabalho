@@ -9,7 +9,7 @@ class Temperature(forms.Form):
 
     first_choice = forms.ChoiceField(label="De", choices=CHOICES, widget=forms.Select(attrs={'style': 'font-size: .9em; border-radius: 4px;'}))
     second_choice = forms.ChoiceField(label="Para", choices=CHOICES, widget=forms.Select(attrs={'style': 'font-size: .9em; border-radius: 4px;'}))
-    value = forms.FloatField(label="Valor", required=True, widget=forms.TextInput(attrs={'placeholder': 'Número', 'style': 'width: 150px; font-size: .9em; padding-left: 5px; border-radius: 4px;'}))
+    value = forms.FloatField(label="Valor", required=True, widget=forms.NumberInput(attrs={'placeholder': 'Número', 'style': 'width: 150px; font-size: .9em; padding-left: 5px; border-radius: 4px;'}))
 
 class Length(forms.Form):
     CHOICES: list[tuple] = [
@@ -24,7 +24,7 @@ class Length(forms.Form):
 
     first_choice = forms.ChoiceField(label="De", choices=CHOICES, widget=forms.Select(attrs={'style': 'font-size: .9em; border-radius: 4px;'}))
     second_choice = forms.ChoiceField(label="Para", choices=CHOICES, widget=forms.Select(attrs={'style': 'font-size: .9em; border-radius: 4px;'}))
-    value = forms.FloatField(label="Valor", required=True, widget=forms.TextInput(attrs={'placeholder': 'Número', 'style': 'width: 150px; font-size: .9em; padding-left: 5px; border-radius: 4px;'}))
+    value = forms.FloatField(label="Valor", required=True, widget=forms.NumberInput(attrs={'placeholder': 'Número', 'style': 'width: 150px; font-size: .9em; padding-left: 5px; border-radius: 4px;'}))
 
 class Weight(forms.Form):
     CHOICES: list[tuple] = [
@@ -39,4 +39,4 @@ class Weight(forms.Form):
 
     first_choice = forms.ChoiceField(label="De", choices=CHOICES, widget=forms.Select(attrs={'style': 'font-size: .9em; border-radius: 4px;'}))
     second_choice = forms.ChoiceField(label="Para", choices=CHOICES, widget=forms.Select(attrs={'style': 'font-size: .9em; border-radius: 4px;'}))
-    value = forms.FloatField(label="Valor", required=True, widget=forms.TextInput(attrs={'placeholder': 'Número', 'style': 'width: 150px; font-size: .9em; padding-left: 5px; border-radius: 4px;'}))
+    value = forms.FloatField(label="Valor", required=True, widget=forms.NumberInput(attrs={'placeholder': 'Número', 'style': 'width: 150px; font-size: .9em; padding-left: 5px; border-radius: 4px;'}))
